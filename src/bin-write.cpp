@@ -83,6 +83,10 @@ void BinaryWriter::print_bytes() {
     cout << dec << '\n';
 }
 
+std::vector<uint8_t> BinaryWriter::returnBuffer() {
+    return buffer;
+}
+
 void BinaryWriter::clear() {
     buffer.clear();
 }

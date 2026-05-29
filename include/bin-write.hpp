@@ -35,6 +35,7 @@ class BinaryWriter {
         void write_string(const std::string& value);
 
         void print_bytes();
+        std::vector<uint8_t> returnBuffer();
         void clear();
     
 };
