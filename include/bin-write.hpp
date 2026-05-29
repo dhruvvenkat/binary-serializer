@@ -12,6 +12,8 @@ class BinaryWriter {
         std::vector<uint8_t> buffer; // glue bytes onto the back of this variable
 
     public:
+        BinaryWriter();
+
         // UNSIGNED INT CONVERTERS
         void write_u8(uint8_t value);
         void write_u16(uint16_t value);

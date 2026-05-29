@@ -2,8 +2,14 @@
 #include <vector>
 #include <stdint.h>
 #include <iostream>
+#include <bit>
+#include <cstdint>
 
 using namespace std;
+
+BinaryWriter::BinaryWriter() {
+    buffer = {0};
+}
 
 void BinaryWriter::write_u8(uint8_t value) {
     buffer.push_back(value);
@@ -44,4 +50,27 @@ void BinaryWriter::write_i32(int32_t value) {
 
 void BinaryWriter::write_i64(int64_t value) {
     write_u64(static_cast<uint64_t>(value));
+}
+
+void BinaryWriter::write_f32(float value) {
+    uint32_t floatBits = std::bit_cast<uint32_t>(value);
+    write_u32(floatBits);
+}
+
+void BinaryWriter::write_f64(double value) {
+    uint64_t doubleBits = std::bit_cast<uint64_t>(value);
+    write_u64(doubleBits);
+}
+
+void BinaryWriter::write_bool(bool value) {
+    buffer.push_back(static_cast<uint8_t>(value));
+}
+
+void BinaryWriter::write_string(const string &value) {
+    write_u32(static_cast<uint32_t>(value.size())); // need to save the # of characters in the string
+
+    for (char c : value) {
+        write_u8(static_cast<uint8_t>(c));
+    }
+
 }
