@@ -82,3 +82,7 @@ void BinaryWriter::print_bytes() {
 
     cout << dec << '\n';
 }
+
+void BinaryWriter::clear() {
+    buffer.clear();
+}

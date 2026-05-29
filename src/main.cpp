@@ -15,4 +15,12 @@ int main() {
     binWrite.write_f32(dhruv.gpa);
 
     binWrite.print_bytes();
+    binWrite.clear();
+
+    binWrite.write_u8(0x12);        
+    binWrite.write_u16(0x1234);     
+    binWrite.write_u32(0x12345678); 
+    binWrite.write_u64(0x1122334455667788ULL);
+
+    binWrite.print_bytes();
 }
