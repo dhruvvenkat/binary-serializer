@@ -34,6 +34,7 @@ class BinaryWriter {
         void write_bool(bool value);
         void write_string(const std::string& value);
 
+        void print_bytes();
     
 };
 

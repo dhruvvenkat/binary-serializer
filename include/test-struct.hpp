@@ -9,7 +9,7 @@
 struct Student {
     std::string name;
     int age;
-    float GPA;
+    float gpa;
 };
 
 #endif

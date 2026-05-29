@@ -4,6 +4,7 @@
 #include <iostream>
 #include <bit>
 #include <cstdint>
+#include <iomanip>
 
 using namespace std;
 
@@ -72,5 +73,12 @@ void BinaryWriter::write_string(const string &value) {
     for (char c : value) {
         write_u8(static_cast<uint8_t>(c));
     }
+}
 
+void BinaryWriter::print_bytes() {
+    for (uint8_t byte : buffer) {
+        cout << std::hex << std::setw(2) << std::setfill('0') << static_cast<int>(byte) << ' ';
+    }
+
+    cout << dec << '\n';
 }

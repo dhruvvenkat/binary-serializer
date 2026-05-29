@@ -10,7 +10,9 @@ int main() {
     };
 
     BinaryWriter binWrite = BinaryWriter();
+    binWrite.write_string(dhruv.name);
     binWrite.write_u16(dhruv.age);
+    binWrite.write_f32(dhruv.gpa);
 
-    std::cout << dhruv.name << std::endl;
+    binWrite.print_bytes();
 }
