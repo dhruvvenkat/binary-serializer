@@ -9,7 +9,7 @@
 using namespace std;
 
 BinaryWriter::BinaryWriter() {
-    buffer = {0};
+    
 }
 
 void BinaryWriter::write_u8(uint8_t value) {
@@ -83,7 +83,11 @@ void BinaryWriter::print_bytes() {
     cout << dec << '\n';
 }
 
-std::vector<uint8_t> BinaryWriter::returnBuffer() {
+// vector<uint8_t> BinaryWriter::returnBuffer() {
+//     return buffer;
+// }
+
+const vector<uint8_t>& BinaryWriter::returnBuffer() const {
     return buffer;
 }
 

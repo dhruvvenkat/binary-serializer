@@ -1,7 +1,9 @@
 #include "bin-read.hpp"
+#include <bit>
+#include <cstdint>
+#include <stdexcept>
+#include <string>
 #include <vector>
-#include <stdint.h>
-#include <iostream>
 
 using namespace std;
 
@@ -34,10 +36,12 @@ uint32_t BinaryReader::read_u32() {
 uint64_t BinaryReader::read_u64() {
     uint64_t combined = 0;
 
-    for (int i = 7; i > -1; i++) {
+    for (int i = 7; i > -1; i--) {
         uint64_t byteToAdd = read_u8();
         combined |= (byteToAdd << (i*8));
     }
+
+    return combined;
 }
 
 int8_t BinaryReader::read_i8() {
@@ -76,4 +80,6 @@ string BinaryReader::read_string() {
     for (int i = 0; i < stringSize; i++) {
         outputString += static_cast<char>(read_u8());
     }
+
+    return outputString;
 }
